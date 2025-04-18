@@ -33,6 +33,9 @@ resource "azurerm_app_service" "app" {
   site_config {
     always_on = false
   }
+  depends_on = [
+    azurerm_application_insights.ai
+  ]
 }
 resource "azurerm_application_insights" "ai" {
   application_type    = "web"
