@@ -31,7 +31,7 @@ resource "azurerm_app_service" "app" {
   name                = var.app_name
   resource_group_name = azurerm_resource_group.rg.name
   site_config {
-    always_on : false
+    always_on = false
   }
 }
 resource "azurerm_application_insights" "ai" {
