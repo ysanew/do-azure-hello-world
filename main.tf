@@ -15,7 +15,7 @@ resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
 }
-resource "azurerm_app_service_plan" "plan" {
+resource "azurerm_service_plan" "plan" {
   name                = "appservice-plan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -26,7 +26,7 @@ resource "azurerm_app_service_plan" "plan" {
   }
 }
 resource "azurerm_app_service" "app" {
-  app_service_plan_id = azurerm_app_service_plan.plan.id
+  app_service_plan_id = azurerm_service_plan.plan.id
   location            = azurerm_resource_group.rg.location
   name                = var.app_name
   resource_group_name = azurerm_resource_group.rg.name
