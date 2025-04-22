@@ -20,10 +20,8 @@ resource "azurerm_service_plan" "plan" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
-  sku {
-    tier = "Free"
-    size = "F1"
-  }
+  sku_name = "F1"
+  os_type = "Linux"
 }
 resource "azurerm_app_service" "app" {
   app_service_plan_id = azurerm_service_plan.plan.id
